@@ -1,0 +1,12 @@
+body {
+  background-color: papayawhip;
+}
+
+nav {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+ul.gallery {
+  list-style-type: none;
+}
