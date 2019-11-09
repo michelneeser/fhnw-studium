@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Hallo</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <h1>Sali zäme!</h1>
+    </header>
+
+    <nav>
+      <span><a href="index.html">Home</a> | <span>
+      <span><a href="kontakt.html">Kontakt</a> | <span>
+      <span><a href="gallery.html">Gallery</a> | <span>
+      <span><a href="bmi.html">BMI-Rechner</a><span>
+    </nav>
+
+    <main>
+      <form id="bmiForm">
+        <label for="height">Height</label>
+        <input type="text" name="height"><span>[m]</span><br>
+        <label for="weight">Width</label>
+        <input type="text" name="weight"><span>[kg]</span><br>
+        <button type="reset">delete</button>
+        <button type="submit" name="submit">calculate</button>
+      </form>
+      <div id="bmiResult"></div>
+    </main>
+
+    <footer>
+      <span>(C) by Michel Neeser</span>
+    </footer>
+
+    <script>
+      let form = document.getElementById("bmiForm");
+      form.submit.addEventListener("click", function(event) {
+        event.preventDefault();
+        let height = form.height.value;
+        let weight = form.weight.value; 
+        if (!isNaN(height) && !isNaN(weight)) {
+          let bmi = Math.round(weight / Math.pow(height, 2));
+          let resultDiv = document.getElementById("bmiResult");
+          resultDiv.innerHTML = ">>> your BMI is " + bmi + " <<<";
+          resultDiv.style.display = "block";
+        }
+      });
+
+      let arr = [1, 2, 3, 4, 5];
+      console.log("len: " + arr.length);
+      
+      let maxNr = arr[0];
+      for (nr of arr) {
+        maxNr = Math.max(maxNr, nr);
+      }
+      console.log("max: " + maxNr);
+
+      console.log("sqrt: " + Math.sqrt(maxNr));
+
+      let minNr = arr[0];
+      for (nr of arr) {
+        minNr = Math.min(minNr, nr);
+      }
+      console.log("min power to max: " + Math.pow(minNr, maxNr));
+      
+      console.log(5.5555.toFixed(2));
+      console.log(Math.round(5.5555 * 100) / 100);
+    </script>
+  </body>
+</html>
