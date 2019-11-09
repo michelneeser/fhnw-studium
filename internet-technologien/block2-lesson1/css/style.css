@@ -45,3 +45,16 @@ nav {
   padding-left: 10px;
   margin-bottom: 10px;
 }
+
+#bmiForm {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#bmiResult {
+  display: none;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 20px;
+}
