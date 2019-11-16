@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Hallo</title>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="res/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Sali zäme!</h1>
+    </header>
+
+    <nav>
+      <span><a href="index.html">Home</a> | <span>
+      <span><a href="kontakt.html">Kontakt</a> | <span>
+      <span><a href="gallery.html">Gallery</a> | <span>
+      <span><a href="bmi.html">BMI-Rechner</a> | <span>
+      <span><a href="random.html">Random</a> | <span>
+      <span><a href="tictactoe.html">Tic Tac Toe</a><span>
+    </nav>
+
+    <main>
+      <input type="checkbox" id="kiEnabled" name="ki" value="ki" checked>
+        <label>KI aktiviert?</label>
+      <div class="grid-container">
+        <div class="item1"></div>
+        <div class="item2"></div>
+        <div class="item3"></div>
+        <div class="item4"></div>
+        <div class="item5"></div>
+        <div class="item6"></div>
+        <div class="item7"></div>
+        <div class="item8"></div>
+        <div class="item9"></div>
+      </div>
+    </main>
+
+    <footer>
+      <span>(C) by Michel Neeser</span>
+    </footer>
+
+    <script>
+      $(function() {
+        let elems = $(".grid-container > div");
+
+        elems.hover(function() {
+          $(this).css("background-color", "red");
+        }, function() {
+          $(this).css("background-color", "#ebebeb");
+        });
+
+        elems.click(function() {
+          if(set($(this))) {
+            if( $("#kiEnabled").is(':checked') ) {
+              playKI();
+            }
+          }
+        });
+
+        let counter = 0;
+        function set(field) {
+          if(field.html() == "") {
+            field.html(counter % 2 == 0 ? "X" : "O");
+            counter++;
+            return true;
+          }
+        };
+
+        function playKI() {
+          let emptyFields = [];
+          elems.each(function() {
+            if($(this).html() == "") {
+              emptyFields.push($(this));
+            }
+          });
+          if(emptyFields.length > 0) {
+            set(emptyFields[Math.floor(Math.random() * emptyFields.length)]);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

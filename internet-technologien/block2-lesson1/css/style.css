@@ -58,3 +58,20 @@ nav {
   text-align: center;
   padding: 20px;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px; 
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  padding: 40px;
+}
+
+.grid-container > div {
+  background: #ebebeb;
+  text-align: center;
+  padding: 35px;
+  font-size: 30px;
+  border: 1px solid black;
+}
